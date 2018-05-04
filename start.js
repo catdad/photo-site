@@ -4,17 +4,31 @@ const express = require('express');
 const glob = require('fast-glob');
 
 const app = express();
-const dir = process.cwd();
+const cwd = process.cwd();
 
 app.use('*', (req, res, next) => {
-  console.log(`${req.method} ${req.path}`);
+  console.log(`${req.method} ${req.baseUrl}`);
   next();
 });
 
+app.use(express.static(cwd));
+
 app.get('/', (req, res) => {
-  glob(['*.jpeg', '*.jpg', '*png']).then((files) => {
+  glob(['*.jpeg', '*.jpg', '*png'], { cwd, onlyFiles: true, nocase: true }).then((files) => {
     res.end(`
       <html>
+        <style>
+          html, body {
+            padding: 0;
+            margin: 0;
+          }
+
+          img {
+            max-width: 100%;
+            margin: 10px 0;
+          }
+        </style>
+
         <body>
           ${files.map(file => {
             return `<img src=${file} />`;
