@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "photo-site",
   "main": "index.js",
+  "bin": {
+    "photo-site": "start.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node start.js",
