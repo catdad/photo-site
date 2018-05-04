@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 /* jshint node: true, esversion: 6 */
 
 const express = require('express');
