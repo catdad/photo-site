@@ -9,11 +9,14 @@ const appCwd = __dirname;
 
 const script = path.resolve(appCwd, 'start.js');
 
-nodemon({
+var thing = nodemon({
   script,
   cwd: realCwd,
   ext: 'js',
   watch: appCwd,
   ignore: ['node_modules'],
-  stdout: true
+  scriptPosition: 0, args: []
+}).on('log', function (log) {
+  // print messages logged by nodemon itself
+  console.log(log.colour || log.message);
 });
