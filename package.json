@@ -1,0 +1,28 @@
+{
+  "name": "photo-site",
+  "version": "1.0.0",
+  "description": "photo-site",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node start.js",
+    "dev": "nodemon start.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/catdad/photo-site.git"
+  },
+  "author": "Kiril Vatev <vatev.1@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/catdad/photo-site/issues"
+  },
+  "homepage": "https://github.com/catdad/photo-site#readme",
+  "devDependencies": {
+    "nodemon": "^1.17.3"
+  },
+  "dependencies": {
+    "express": "^4.16.3",
+    "fast-glob": "^2.2.1"
+  }
+}
