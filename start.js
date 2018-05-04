@@ -31,7 +31,7 @@ app.get('/', (req, res) => {
         </style>
 
         <body>
-          ${files.map(file => {
+          ${files.sort().map(file => {
             return `<img src=${file} />`;
           }).join('<br>')}
         </body>
