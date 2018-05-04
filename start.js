@@ -15,7 +15,10 @@ app.use('*', (req, res, next) => {
 app.use(express.static(cwd));
 
 app.get('/', (req, res) => {
-  glob(['*.jpeg', '*.jpg', '*png'], { cwd, onlyFiles: true, nocase: true }).then((files) => {
+  glob(
+    ['*.jpeg', '*.jpg', '*png'],
+    { cwd, onlyFiles: true, nocase: true }
+  ).then((files) => {
     res.end(`
       <html>
         <style>
