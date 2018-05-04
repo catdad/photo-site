@@ -27,15 +27,35 @@ app.get('/', (req, res) => {
             margin: 0;
           }
 
-          img {
-            max-width: 100%;
+          .img {
+            position: relative;
+            width: 100%;
             margin: 10px 0;
+
+            color: white;
+            font-family: sans-serif;
+            font-weight: bold;
+            text-shadow: 2px 2px 5px #000, -2px -2px 5px #000, -2px 2px 5px #000, 2px -2px 5px #000;
+          }
+
+          .img:before {
+            content: attr(data-src);
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 1;
+          }
+
+          img {
+            display: block;
+            max-width: 100%;
+            margin: 0 auto;
           }
         </style>
 
         <body>
           ${files.sort().map(file => {
-            return `<img src=${file} />`;
+            return `<div class="img" data-src="${file}"><img src="${file}" /></div>`;
           }).join('<br>')}
         </body>
       </html>
